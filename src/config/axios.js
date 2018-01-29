@@ -2,7 +2,8 @@ import axios from 'axios'
 import { API_URL } from "../service/ApiSetting";
 
 
-const ROOT_URL = 'http://cio.ueepub.cn';
+// const ROOT_URL = 'http://cio.ueepub.cn';
+const ROOT_URL = 'https://cnodejs.org/api/v1';
 
 //http request 拦截器
 // axios.interceptors.request.use(
@@ -58,7 +59,7 @@ export const AxiosDataModule = function (baseURL, params){
     if (API_URL[baseURL].method === 'GET'){
         return new Promise((resolve,reject) =>{
 
-            axios.get(API_URL[baseURL].fetchUrl, params)
+            axios.get(API_URL[baseURL].fetchUrl, { params: params})
                 .then(response =>{
                     resolve(response.data);
                 })
