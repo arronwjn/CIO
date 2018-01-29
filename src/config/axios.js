@@ -41,7 +41,14 @@ const ROOT_URL = 'https://cnodejs.org/api/v1';
 // )
 
 
-export const AxiosDataModule = function (baseURL, params){
+const ApiDataModule = function (baseURL, params){
+
+    /**
+    * 封装post请求
+    * @param url
+    * @param data
+    * @returns {Promise}
+    */
     if (API_URL[baseURL].method === 'POST'){
         return new Promise((resolve,reject) => {
 
@@ -56,6 +63,12 @@ export const AxiosDataModule = function (baseURL, params){
         })
     }
     
+    /**
+    * 封装get请求
+    * @param url
+    * @param data
+    * @returns {Promise}
+    */
     if (API_URL[baseURL].method === 'GET'){
         return new Promise((resolve,reject) =>{
 
@@ -71,11 +84,11 @@ export const AxiosDataModule = function (baseURL, params){
     }
 
     /**
-* 封装patch请求
-* @param url
-* @param data
-* @returns {Promise}
-*/
+    * 封装patch请求
+    * @param url
+    * @param data
+    * @returns {Promise}
+    */
     if (API_URL[baseURL].method === 'patch'){
 
         return new Promise((resolve, reject) => {
@@ -111,3 +124,5 @@ export const AxiosDataModule = function (baseURL, params){
 
     }
 }
+
+export default ApiDataModule;
